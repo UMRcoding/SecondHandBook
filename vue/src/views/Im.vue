@@ -66,9 +66,9 @@ export default {
         this.$message({type: 'warning', message: "请输入内容"})
       } else {
         if (typeof (WebSocket) == "undefined") {
-          console.log("您的浏览器不支持WebSocket");
+          // console.log("您的浏览器不支持WebSocket");
         } else {
-          console.log("您的浏览器支持WebSocket");
+          // console.log("您的浏览器支持WebSocket");
           // 组装待发送的消息 json
           // {"from": "zhang", "to": "admin", "text": "聊天文本"}
           let message = {from: this.user.username, to: this.chatUser, text: this.text}
@@ -114,9 +114,9 @@ export default {
       let username = this.user.username;
       let _this = this;
       if (typeof (WebSocket) == "undefined") {
-        console.log("您的浏览器不支持WebSocket");
+        // console.log("您的浏览器不支持WebSocket");
       } else {
-        console.log("您的浏览器支持WebSocket");
+        // console.log("您的浏览器支持WebSocket");
         let socketUrl = "ws://localhost:9090/imserver/" + username;
         if (socket != null) {
           socket.close();
