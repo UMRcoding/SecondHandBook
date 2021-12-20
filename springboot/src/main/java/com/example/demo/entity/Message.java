@@ -12,38 +12,57 @@ import lombok.Data;
 @TableName("message")
 public class Message extends Model<Message> {
     /**
-      * 主键
-      */
+      * 功能描述:
+      * @Param: 主键
+      * @Author: Liu Heng
+      * @return:
+    */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-      * 内容
-      */
+     * 功能描述: 内容
+     * @Param:
+     * @Author: Liu Heng
+     * @return:
+    */
     private String content;
 
     /**
-      * 评论人
-      */
+     * 功能描述: 评论人
+     * @Param:
+     * @Author: Liu Heng
+     * @return:
+    */
     private String username;
 
     /**
-      * 评论时间
-      */
+     * 功能描述: 评论时间
+     * @Param:
+     * @Author: Liu Heng
+     * @return:
+    */
     private String time;
 
     /**
-      * 父ID
-      */
+     * 功能描述: 父ID
+     * @Param:
+     * @Author: Liu Heng
+     * @return:
+    */
     private Long parentId;
 
     @TableField(exist = false)
     private Message parentMessage;
 
     /**
-     * 关联id
-     */
+     * 功能描述: 关联id
+     * @Param:
+     * @Author: Liu Heng
+     * @return:
+    */
     private Long foreignId;
+
     @TableField(exist = false)
     private String avatar;
 

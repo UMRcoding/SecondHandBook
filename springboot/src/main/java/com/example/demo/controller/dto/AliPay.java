@@ -6,7 +6,9 @@ import lombok.Data;
 public class AliPay {
 
     private String subject;
+
     private String traceNo;
+
     private String totalAmount;
 
 }

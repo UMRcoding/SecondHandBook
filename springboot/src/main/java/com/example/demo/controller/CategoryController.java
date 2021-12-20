@@ -40,10 +40,11 @@ public class CategoryController extends BaseController {
     }
 
     /**
-     * 分类父子查询
-     *
-     * @return
-     */
+    * 功能描述: 分类父子查询
+    * @Param: []
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @GetMapping
     public Result<?> getAll() {
         // 先查询所有的数据
@@ -52,12 +53,11 @@ public class CategoryController extends BaseController {
     }
 
     /**
-     * 递归查询子集
-     *
-     * @param pid
-     * @param allCategories
-     * @return
-     */
+    * 功能描述: 递归查询子集
+    * @Param: [java.lang.Integer, java.util.List<com.example.demo.entity.Category>]
+    * @Author: Liu Heng
+    * @return: java.util.List<com.example.demo.entity.Category>
+    */
     private List<Category> loopQuery(Integer pid, List<Category> allCategories) {
         List<Category> categoryList = new ArrayList<>();
         for (Category category : allCategories) {

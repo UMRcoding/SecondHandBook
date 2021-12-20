@@ -13,10 +13,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @MapperScan("com.example.demo.mapper")
 public class MybatisPlusConfig {
-
     /**
-     * 分页插件
-     */
+    * 功能描述: 分页插件
+    * @Param: []
+    * @Author: Liu Heng
+    * @return: com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor
+    */
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();

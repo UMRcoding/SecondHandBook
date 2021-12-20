@@ -32,8 +32,13 @@ public class AliOssUtil {
         configProperties = this.ossConfigProperties;
     }
 
+    /**
+    * 功能描述: 初始化 OssClient
+    * @return:com.aliyun.oss.OSS
+    * @Author:Oakley
+    */
+
     private static OSS createClient() {
-        // 初始化 OssClient
         return new OSSClientBuilder().build(configProperties.getEndpoint(), configProperties.getAccessKeyId(),
                 configProperties.getAccessKeySecret());
     }

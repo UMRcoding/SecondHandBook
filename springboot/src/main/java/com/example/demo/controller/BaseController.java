@@ -11,16 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class BaseController {
 
-    @Autowired
+    @Autowired(required=false)
     private UserMapper userMapper;
 
     @Autowired
     private HttpServletRequest request;
 
     /**
-     * 根据token获取用户信息
-     * @return user
-     */
+     * 功能描述: 根据token获取用户信息
+     * @Param: []
+     * @Author: Liu Heng
+     * @return: com.example.demo.entity.User
+    */
     public User getUser() {
         String token = request.getHeader("token");
         String aud = JWT.decode(token).getAudience().get(0);

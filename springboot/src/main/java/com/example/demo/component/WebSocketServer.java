@@ -24,13 +24,20 @@ public class WebSocketServer {
     private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
 
     /**
-     * 记录当前在线连接数
-     */
+    * 功能描述: 记录当前在线连接数
+    * @Param:
+    * @Author: Liu Heng
+    * @return:
+    */
     public static final Map<String, Session> sessionMap = new ConcurrentHashMap<>();
 
+
     /**
-     * 连接建立成功调用的方法
-     */
+    * 功能描述: 连接建立成功调用的方法
+    * @Param: [javax.websocket.Session, java.lang.String]
+    * @Author: Liu Heng
+    * @return: void
+    */
     @OnOpen
     public void onOpen(Session session, @PathParam("username") String username) {
         sessionMap.put(username, session);
@@ -49,8 +56,11 @@ public class WebSocketServer {
     }
 
     /**
-     * 连接关闭调用的方法
-     */
+    * 功能描述: 连接关闭调用的方法
+    * @Param: [javax.websocket.Session, java.lang.String]
+    * @Author: Liu Heng
+    * @return: void
+    */
     @OnClose
     public void onClose(Session session, @PathParam("username") String username) {
         sessionMap.remove(username);
@@ -58,12 +68,15 @@ public class WebSocketServer {
     }
 
     /**
+     * 功能描述:
      * 收到客户端消息后调用的方法
      * 后台收到客户端发送过来的消息
      * onMessage 是一个消息的中转站
      * 接受 浏览器端 socket.send 发送过来的 json数据
-     * @param message 客户端发送过来的消息
-     */
+    * @Param: [java.lang.String, javax.websocket.Session, java.lang.String]
+    * @Author: Liu Heng
+    * @return: void
+    */
     @OnMessage
     public void onMessage(String message, Session session, @PathParam("username") String username) {
         log.info("服务端收到用户username={}的消息:{}", username, message);
@@ -85,6 +98,12 @@ public class WebSocketServer {
         }
     }
 
+    /**
+    * 功能描述:
+    * @Param: [javax.websocket.Session, java.lang.Throwable]
+    * @Author: Liu Heng
+    * @return: void
+    */
     @OnError
     public void onError(Session session, Throwable error) {
         log.error("发生错误");
@@ -92,8 +111,11 @@ public class WebSocketServer {
     }
 
     /**
-     * 服务端发送消息给客户端
-     */
+    * 功能描述: 服务端发送消息给客户端
+    * @Param: [java.lang.String, javax.websocket.Session]
+    * @Author: Liu Heng
+    * @return: void
+    */
     private void sendMessage(String message, Session toSession) {
         try {
             log.info("服务端给客户端[{}]发送消息{}", toSession.getId(), message);
@@ -104,8 +126,11 @@ public class WebSocketServer {
     }
 
     /**
-     * 服务端发送消息给所有客户端
-     */
+    * 功能描述: 服务端发送消息给所有客户端
+    * @Param: [java.lang.String]
+    * @Author: Liu Heng
+    * @return: void
+    */
     private void sendAllMessage(String message) {
         try {
             for (Session session : sessionMap.values()) {

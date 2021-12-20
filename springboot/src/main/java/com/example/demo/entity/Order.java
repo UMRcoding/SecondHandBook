@@ -15,9 +15,13 @@ public class Order {
 
     @TableId(type = IdType.AUTO)
     private Integer id;
+
     private String name;
+
     private BigDecimal totalPrice;
+
     private BigDecimal payPrice;
+
     private BigDecimal discount;
     private BigDecimal transportPrice;
     private String orderNo;

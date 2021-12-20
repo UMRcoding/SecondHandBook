@@ -14,7 +14,6 @@ import com.example.demo.mapper.RoleMapper;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,7 +39,12 @@ public class RoleController extends BaseController {
         return Result.success();
     }
 
-    // 改变权限接口
+    /**
+    * 功能描述: 改变权限接口
+    * @Param: [com.example.demo.entity.Role]
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @PutMapping("/changePermission")
     public Result<?> changePermission(@RequestBody Role role) {
         // 先根据角色id删除所有的角色跟权限的绑定关系

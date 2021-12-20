@@ -8,7 +8,6 @@ import com.example.demo.entity.User;
 import com.example.demo.exception.CustomException;
 import com.example.demo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AuthInterceptor implements HandlerInterceptor {
 
-    @Autowired
+    // Could not autowire. No beans of 'UserMapper' type found
+    @Autowired(required=false)
     private UserMapper userMapper;
 
     @Override

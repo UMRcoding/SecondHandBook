@@ -151,7 +151,12 @@ public class UserController extends BaseController {
         return Result.success();
     }
 
-    // 改变权限接口
+    /**
+    * 功能描述: 改变权限接口
+    * @Param: [com.example.demo.entity.User]
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @PutMapping("/changeRole")
     public Result<?> changeRole(@RequestBody User user) {
         // 先根据角色id删除所有的角色跟权限的绑定关系
@@ -189,10 +194,11 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 统计数据
-     *
-     * @return
-     */
+    * 功能描述: 统计数据
+    * @Param: []
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @GetMapping("/count")
     public Result<?> count() {
 //        User user = getUser(); // 当前登录的用户信息
@@ -200,13 +206,11 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 用户分页列表查询，包含书籍表的一对多查询
-     *
-     * @param pageNum
-     * @param pageSize
-     * @param search
-     * @return
-     */
+    * 功能描述: 用户分页列表查询，包含书籍表的一对多查询
+    * @Param: [java.lang.Integer, java.lang.Integer, java.lang.String]
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @GetMapping
     public Result<?> findPage(@RequestParam(defaultValue = "1") Integer pageNum,
                               @RequestParam(defaultValue = "10") Integer pageSize,
@@ -227,11 +231,11 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Excel导出
-     *
-     * @param response
-     * @throws IOException
-     */
+    * 功能描述: Excel导出
+    * @Param: [javax.servlet.http.HttpServletResponse]
+    * @Author: Liu Heng
+    * @return: void
+    */
     @GetMapping("/export")
     public void export(HttpServletResponse response) throws IOException {
 
@@ -263,13 +267,12 @@ public class UserController extends BaseController {
     }
 
     /**
-     * Excel导入
-     * 导入的模板可以使用 Excel导出的文件
-     *
-     * @param file Excel
-     * @return
-     * @throws IOException
-     */
+    * 功能描述: Excel导入
+    * 导入的模板可以使用 Excel导出的文件
+    * @Param: [org.springframework.web.multipart.MultipartFile]
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @PostMapping("/import")
     public Result<?> upload(MultipartFile file) throws IOException {
         InputStream inputStream = file.getInputStream();

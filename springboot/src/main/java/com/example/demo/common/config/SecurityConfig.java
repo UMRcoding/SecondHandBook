@@ -24,9 +24,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable();
     }
 
-    /*
-     * 注入BCryptPasswordEncoder
-     */
+    /**
+    * 功能描述: 注入BCryptPasswordEncoder
+    * @Param: []
+    * @Author: Liu Heng
+    * @return: org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+    */
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();

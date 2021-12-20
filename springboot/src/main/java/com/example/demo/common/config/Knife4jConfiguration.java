@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableSwagger2WebMvc
 public class Knife4jConfiguration {
 
-    // 地址 ip:port/doc
+//    地址 ip:port/doc
     @Bean(value = "SpringBoot-Vue-Demo-Api")
     public Docket cloudMallApi() {
         Docket docket = new Docket(DocumentationType.SWAGGER_2)

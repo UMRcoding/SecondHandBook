@@ -30,11 +30,11 @@ public class FileController extends BaseController {
 
 
     /**
-     * 上传接口
-     * @param file
-     * @return
-     * @throws IOException
-     */
+    * 功能描述: 上传接口
+    * @Param: [org.springframework.web.multipart.MultipartFile]
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @PostMapping("/upload")
     public Result<?> upload(MultipartFile file) throws IOException {
         String originalFilename = file.getOriginalFilename();  // 获取源文件的名称
@@ -46,11 +46,11 @@ public class FileController extends BaseController {
     }
 
     /**
-     * 富文本文件上传接口
-     * @param file
-     * @return
-     * @throws IOException
-     */
+    * 功能描述: 富文本文件上传接口
+    * @Param: [org.springframework.web.multipart.MultipartFile]
+    * @Author: Liu Heng
+    * @return: cn.hutool.json.JSON
+    */
     @PostMapping("/editor/upload")
     public JSON editorUpload(MultipartFile file) throws IOException {
         String originalFilename = file.getOriginalFilename();  // 获取源文件的名称
@@ -70,10 +70,11 @@ public class FileController extends BaseController {
     }
 
     /**
-     * 下载接口
-     * @param flag
-     * @param response
-     */
+    * 功能描述: 下载接口
+    * @Param: [java.lang.String, javax.servlet.http.HttpServletResponse]
+    * @Author: Liu Heng
+    * @return: void
+    */
     @GetMapping("/{flag}")
     public void getFiles(@PathVariable String flag, HttpServletResponse response) {
         OutputStream os;  // 新建一个输出流对象
@@ -96,20 +97,22 @@ public class FileController extends BaseController {
     }
 
     /**
-     * OSS文件上传
-     * @param file
-     * @return
-     */
+    * 功能描述: OSS文件上传
+    * @Param: [org.springframework.web.multipart.MultipartFile]
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @PostMapping("/upload/oss")
     public Result<?> ossUpload(MultipartFile file) {
         return Result.success(AliOssUtil.upload("test/", file));  // 返回结果 url
     }
 
     /**
-     * OSS文件删除
-     * @param fileVO 文件存储路径
-     * @return
-     */
+    * 功能描述: OSS文件删除
+    * @Param: [com.example.demo.controller.dto.FileVO] fileVO 文件存储路径
+    * @Author: Liu Heng
+    * @return: com.example.demo.common.Result<?>
+    */
     @DeleteMapping("/delete/oss")
     public Result<?> ossUpload(@RequestBody FileVO fileVO) {
         AliOssUtil.delete(fileVO.getFilekey());
