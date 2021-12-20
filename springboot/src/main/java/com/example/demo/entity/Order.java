@@ -23,14 +23,21 @@ public class Order {
     private BigDecimal payPrice;
 
     private BigDecimal discount;
+
     private BigDecimal transportPrice;
+
     private String orderNo;
+
     private Integer userId;
+
     private String username;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date payTime;
+
     private Integer state;
 
 }
