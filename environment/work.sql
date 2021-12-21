@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 21/12/2021 10:12:49
+ Date: 21/12/2021 10:28:30
 */
 
 SET NAMES utf8mb4;
@@ -92,8 +92,6 @@ CREATE TABLE `message`  (
 -- ----------------------------
 -- Records of message
 -- ----------------------------
-INSERT INTO `message` VALUES (23, '哈哈哈', 'zhang', '2021-05-24 17:13:45', 22, 0);
-INSERT INTO `message` VALUES (24, '我们都爱吃大西瓜', 'zhang', '2021-05-24 17:13:58', NULL, 0);
 
 -- ----------------------------
 -- Table structure for news
@@ -219,6 +217,7 @@ CREATE TABLE `t_order`  (
 -- ----------------------------
 -- Records of t_order
 -- ----------------------------
+INSERT INTO `t_order` VALUES (28, '碳中和革命', 60.00, 60.00, 0.00, 0.00, '1473117761347973120', 18, 'user1', '2021-12-21 10:26:58', NULL, 0);
 
 -- ----------------------------
 -- Table structure for user
@@ -240,7 +239,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', '$2a$10$.cxJ637DYA1PRSzfPmBO0efS1W2eTQefS51b83Nr5xgRNAW0ffgjO', '管理员', 20, '男', '石家庄', 'https://tostring.oss-cn-beijing.aliyuncs.com/admin', 100000.00);
+INSERT INTO `user` VALUES (1, 'admin', '$2a$10$.cxJ637DYA1PRSzfPmBO0efS1W2eTQefS51b83Nr5xgRNAW0ffgjO', '管理员', 20, '男', '火星', 'http://localhost:9090/files/888f2d39d0724816a738a716d56ad58a', 100000.00);
+INSERT INTO `user` VALUES (17, 'test', '$2a$10$YfhInmHyfIOw3CKYa/9sjuMEPlffTGAX//cAmoQ4hLN3uaT1gw6yW', 'test', 20, '男', '石家庄', NULL, 200.00);
+INSERT INTO `user` VALUES (18, 'user1', '$2a$10$Jth6Rwm9pXnMpzk7SL/5vuPR2SK7.20vZeNVDzj.ZQJWxctzxp/.O', '用户1473117627188965378', NULL, NULL, NULL, NULL, 1000.00);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -260,5 +261,7 @@ INSERT INTO `user_role` VALUES (13, 2);
 INSERT INTO `user_role` VALUES (14, 2);
 INSERT INTO `user_role` VALUES (15, 2);
 INSERT INTO `user_role` VALUES (16, 2);
+INSERT INTO `user_role` VALUES (17, 2);
+INSERT INTO `user_role` VALUES (18, 2);
 
 SET FOREIGN_KEY_CHECKS = 1;

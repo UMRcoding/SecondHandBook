@@ -1,15 +1,5 @@
 <template>
   <div style="padding: 10px">
-    <!--    功能区域-->
-<!--    <div style="margin: 10px 0">-->
-<!--      <el-button type="primary" @click="add" v-if="user.role === 1">新增</el-button>-->
-<!--    </div>-->
-
-    <!--    搜索区域-->
-<!--    <div style="margin: 10px 0">-->
-<!--      <el-input v-model="search" placeholder="请输入关键字" style="width: 20%" clearable></el-input>-->
-<!--      <el-button type="primary" style="margin-left: 5px" @click="load">查询</el-button>-->
-<!--    </div>-->
     <el-table
         v-loading="loading"
         :data="tableData"
@@ -19,12 +9,6 @@
         row-key="id"
         default-expand-all
     >
-<!--      <el-table-column-->
-<!--          prop="id"-->
-<!--          label="ID"-->
-<!--          sortable-->
-<!--      >-->
-<!--      </el-table-column>-->
       <el-table-column
           prop="name"
           label="名称">
@@ -64,9 +48,9 @@
       </div>
     </el-card>
 
-    <el-card style="width: 50%">
+    <!-- <el-card style="width: 50%">
       <el-cascader :options="options" clearable @change="changeCas" v-model="casdata"></el-cascader>
-    </el-card>
+    </el-card> -->
 
     <div style="margin: 10px 0">
       <el-dialog title="提示" v-model="dialogVisible" width="30%">

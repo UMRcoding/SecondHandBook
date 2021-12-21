@@ -1,7 +1,14 @@
+<!--
+ * @Description: 
+ * @Author: Liu Heng
+ * @Date: 2021-12-20 16:12:29
+ * @LastEditors: Liu Heng
+ * @LastEditTime: 2021-12-21 10:23:17
+-->
 <template>
   <div>
     <el-card style="width: 40%; margin: 10px">
-      <el-form ref="form" :model="form" label-width="80px" :rules="rules">
+      <el-form ref="form" :model="form" label-width="100px" :rules="rules">
         <el-form-item label="原密码" prop="password">
           <el-input v-model="form.password" show-password></el-input>
         </el-form-item>
