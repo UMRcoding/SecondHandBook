@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 14/12/2021 10:50:42
+ Date: 21/12/2021 10:12:49
 */
 
 SET NAMES utf8mb4;
@@ -32,9 +32,6 @@ CREATE TABLE `area`  (
 -- ----------------------------
 -- Records of area
 -- ----------------------------
-INSERT INTO `area` VALUES (1, '安徽省', NULL, 'Anhui');
-INSERT INTO `area` VALUES (2, '合肥市', 1, 'Hefei');
-INSERT INTO `area` VALUES (3, '政务区', 2, 'Zhengwu');
 
 -- ----------------------------
 -- Table structure for book
@@ -54,7 +51,8 @@ CREATE TABLE `book`  (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES (1, '明朝那些事', 60.00, 'xxx', '2010-07-01 00:00:00', 'http://localhost:9090/files/eb7942935c294ca1bc2a07d24b554d36', 13);
+INSERT INTO `book` VALUES (1, '碳中和革命', 60.00, '清华大学', '2021-12-21 00:00:00', 'https://tostring.oss-cn-beijing.aliyuncs.com/1.png', 13);
+INSERT INTO `book` VALUES (2, '去依附', 98.00, '温铁军', '2021-12-21 10:09:24', 'https://tostring.oss-cn-beijing.aliyuncs.com/2.png', 13);
 
 -- ----------------------------
 -- Table structure for category
@@ -113,8 +111,6 @@ CREATE TABLE `news`  (
 -- ----------------------------
 -- Records of news
 -- ----------------------------
-INSERT INTO `news` VALUES (6, '带你从0搭建一个Springboot+vue前后端分离项目，真的很简单！', '<p><iframe src=\"//player.bilibili.com/player.html?aid=803885504&amp;bvid=BV14y4y1M7Nc&amp;cid=361690131&amp;page=1\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\" width=\"600\" height=\"400\"> </iframe></p>', '管理员', '2021-09-05 22:28:25');
-INSERT INTO `news` VALUES (7, '我擦！妹子给我整害羞了⁄(⁄ ⁄ ⁄ω⁄ ⁄ ⁄)⁄……', '<p><iframe src=\"//player.bilibili.com/player.html?aid=717601909&amp;bvid=BV1sQ4y1174g&amp;cid=396410411&amp;page=1\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\" width=\"600\" height=\"400\"> </iframe></p>', '管理员', '2021-09-05 22:31:40');
 
 -- ----------------------------
 -- Table structure for permission
@@ -218,14 +214,11 @@ CREATE TABLE `t_order`  (
   `pay_time` timestamp NULL DEFAULT NULL COMMENT '支付时间',
   `state` int NOT NULL DEFAULT 0 COMMENT '状态',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of t_order
 -- ----------------------------
-INSERT INTO `t_order` VALUES (25, '明朝那些事', 60.00, 60.00, 0.00, 0.00, '1451548938265882624', 1, 'admin', '2021-10-22 22:02:12', '2021-10-22 22:02:11', 1);
-INSERT INTO `t_order` VALUES (26, '明朝那些事', 60.00, 60.00, 0.00, 0.00, '1470323605630902272', 1, 'admin', '2021-12-13 17:23:59', NULL, 0);
-INSERT INTO `t_order` VALUES (27, '明朝那些事', 60.00, 60.00, 0.00, 0.00, '1470552026227269632', 1, 'admin', '2021-12-14 08:31:39', NULL, 0);
 
 -- ----------------------------
 -- Table structure for user
@@ -247,11 +240,7 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', '$2a$10$.cxJ637DYA1PRSzfPmBO0efS1W2eTQefS51b83Nr5xgRNAW0ffgjO', '管理员', 32, '男', '火星', 'http://localhost:9090/files/888f2d39d0724816a738a716d56ad58a', 100000.00);
-INSERT INTO `user` VALUES (13, 'zhang', '$2a$10$h6gfZRMvGFjjQH6HrQf.Q.fvu3jjMc0cv/sGpSanobht5iwCFbucS', '张三', 20, '男', '木星', 'http://localhost:9090/files/d227473b758e4915a3e7c866d2d494cf', 200.00);
-INSERT INTO `user` VALUES (14, 'wang', '$2a$10$h6gfZRMvGFjjQH6HrQf.Q.fvu3jjMc0cv/sGpSanobht5iwCFbucS', '王梦晨', 24, '女', '地球', NULL, 300.00);
-INSERT INTO `user` VALUES (15, 'li', '$2a$10$h6gfZRMvGFjjQH6HrQf.Q.fvu3jjMc0cv/sGpSanobht5iwCFbucS', '李雪', 22, '女', '银河系', NULL, 500.00);
-INSERT INTO `user` VALUES (16, 'qian', '$2a$10$h6gfZRMvGFjjQH6HrQf.Q.fvu3jjMc0cv/sGpSanobht5iwCFbucS', '钱江', 22, '男', '地球', NULL, 700.00);
+INSERT INTO `user` VALUES (1, 'admin', '$2a$10$.cxJ637DYA1PRSzfPmBO0efS1W2eTQefS51b83Nr5xgRNAW0ffgjO', '管理员', 20, '男', '石家庄', 'https://tostring.oss-cn-beijing.aliyuncs.com/admin', 100000.00);
 
 -- ----------------------------
 -- Table structure for user_role
