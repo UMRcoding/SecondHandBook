@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 21/12/2021 15:51:44
+ Date: 21/12/2021 16:07:26
 */
 
 SET NAMES utf8mb4;
@@ -53,27 +53,6 @@ CREATE TABLE `book`  (
 -- ----------------------------
 INSERT INTO `book` VALUES (1, '碳中和革命', 60.00, '清华大学', '2021-12-21 00:00:00', 'https://tostring.oss-cn-beijing.aliyuncs.com/1.png', 13);
 INSERT INTO `book` VALUES (2, '去依附', 98.00, '温铁军', '2021-12-21 10:09:24', 'https://tostring.oss-cn-beijing.aliyuncs.com/2.png', 13);
-
--- ----------------------------
--- Table structure for category
--- ----------------------------
-DROP TABLE IF EXISTS `category`;
-CREATE TABLE `category`  (
-  `id` int NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '名称',
-  `pid` int NULL DEFAULT NULL COMMENT '父节点id',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of category
--- ----------------------------
-INSERT INTO `category` VALUES (1, '文学', NULL);
-INSERT INTO `category` VALUES (2, '童书', 1);
-INSERT INTO `category` VALUES (3, '社会科学', 1);
-INSERT INTO `category` VALUES (4, '经济学', 1);
-INSERT INTO `category` VALUES (5, '科普百科', 2);
-INSERT INTO `category` VALUES (7, '法律', 3);
 
 -- ----------------------------
 -- Table structure for message
@@ -128,16 +107,15 @@ CREATE TABLE `permission`  (
 -- ----------------------------
 INSERT INTO `permission` VALUES (1, 'Home', '/home', '主页', 'el-icon-house');
 INSERT INTO `permission` VALUES (2, 'Book', '/book', '书籍管理', 'el-icon-files');
-INSERT INTO `permission` VALUES (3, 'Category', '/category', '分类管理', 'el-icon-menu');
-INSERT INTO `permission` VALUES (4, 'Order', '/order', '我的订单', 'el-icon-s-order');
-INSERT INTO `permission` VALUES (5, 'News', '/news', '通知管理', 'el-icon-news');
-INSERT INTO `permission` VALUES (6, 'Im', '/im', '聊天室', 'el-icon-chat-round');
-INSERT INTO `permission` VALUES (7, 'Message', '/message', '在线留言', 'el-icon-message');
-INSERT INTO `permission` VALUES (8, 'User', '/user', '用户管理', 'el-icon-user');
-INSERT INTO `permission` VALUES (9, 'Permission', '/permisssion', '功能权限', 'el-icon-menu');
-INSERT INTO `permission` VALUES (10, 'Role', '/role', '角色管理', 'el-icon-s-custom');
-INSERT INTO `permission` VALUES (11, 'Person', '/person', '个人信息', '');
-INSERT INTO `permission` VALUES (12, 'Password', '/password', '修改密码', NULL);
+INSERT INTO `permission` VALUES (3, 'Order', '/order', '我的订单', 'el-icon-s-order');
+INSERT INTO `permission` VALUES (4, 'News', '/news', '通知管理', 'el-icon-news');
+INSERT INTO `permission` VALUES (5, 'Im', '/im', '聊天室', 'el-icon-chat-round');
+INSERT INTO `permission` VALUES (6, 'Message', '/message', '在线留言', 'el-icon-message');
+INSERT INTO `permission` VALUES (7, 'User', '/user', '用户管理', 'el-icon-user');
+INSERT INTO `permission` VALUES (8, 'Permission', '/permisssion', '功能权限', 'el-icon-menu');
+INSERT INTO `permission` VALUES (9, 'Role', '/role', '角色管理', 'el-icon-s-custom');
+INSERT INTO `permission` VALUES (10, 'Person', '/person', '个人信息', '');
+INSERT INTO `permission` VALUES (11, 'Password', '/password', '修改密码', NULL);
 
 -- ----------------------------
 -- Table structure for role
@@ -180,7 +158,6 @@ INSERT INTO `role_permission` VALUES (1, 8);
 INSERT INTO `role_permission` VALUES (1, 9);
 INSERT INTO `role_permission` VALUES (1, 10);
 INSERT INTO `role_permission` VALUES (1, 11);
-INSERT INTO `role_permission` VALUES (1, 12);
 
 -- ----------------------------
 -- Table structure for t_order
