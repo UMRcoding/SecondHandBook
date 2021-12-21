@@ -33,25 +33,20 @@ public class AliOssUtil {
     }
 
     /**
-    * 功能描述: 初始化 OssClient
-    * @return:com.aliyun.oss.OSS
-    * @Author:Oakley
+     * 功能描述: 初始化 OssClient
+     * @Author: Liu Heng
     */
-
     private static OSS createClient() {
         return new OSSClientBuilder().build(configProperties.getEndpoint(), configProperties.getAccessKeyId(),
                 configProperties.getAccessKeySecret());
     }
 
-
     /**
-     * 上传文件
-     * 详细文档：https://help.aliyun.com/document_detail/84778.html
-     *
+     * 功能描述: 上传文件
      * @param fileDir
-     * @param file
-     * @return
-     */
+     * 详细文档：https://help.aliyun.com/document_detail/84778.html
+     * @Author: Liu Heng
+    */
     public static String upload(String fileDir, MultipartFile file) {
         OSS ossClient = createClient();
         String url = "";
@@ -85,9 +80,7 @@ public class AliOssUtil {
     /**
      * 删除文件
      * 详细文档：https://help.aliyun.com/document_detail/84842.html
-     *
      * @param fileKey
-     *
      */
     public static void delete(String fileKey) {
         OSS ossClient = createClient();

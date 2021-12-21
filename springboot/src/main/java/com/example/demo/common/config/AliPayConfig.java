@@ -13,8 +13,11 @@ import javax.annotation.PostConstruct;
 @ConfigurationProperties(prefix = "alipay")
 public class AliPayConfig {
     private String appId;
+
     private String appPrivateKey;
+
     private String alipayPublicKey;
+
     private String notifyUrl;
 
 

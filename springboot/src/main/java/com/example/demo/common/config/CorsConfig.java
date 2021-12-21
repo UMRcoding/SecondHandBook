@@ -13,7 +13,9 @@ public class CorsConfig {
     private static final long MAX_AGE = 24 * 60 * 60;
 
     private CorsConfiguration buildConfig() {
+
         CorsConfiguration corsConfiguration = new CorsConfiguration();
+
         // 1 设置访问源地址
         corsConfiguration.addAllowedOrigin("*");
 
@@ -36,7 +38,8 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", buildConfig()); // 4 对接口配置跨域设置
+        // 4 对接口配置跨域设置
+        source.registerCorsConfiguration("/**", buildConfig());
         return new CorsFilter(source);
     }
 }

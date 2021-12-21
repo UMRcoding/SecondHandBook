@@ -8,11 +8,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- *  mybatis-plus 分页插件
- */
+ * 功能描述: mybatis-plus 分页插件
+ * @Author: Liu Heng
+*/
+
 @Configuration
 @MapperScan("com.example.demo.mapper")
 public class MybatisPlusConfig {
+
     /**
     * 功能描述: 分页插件
     * @Param: []
@@ -25,5 +28,4 @@ public class MybatisPlusConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
     }
-
 }

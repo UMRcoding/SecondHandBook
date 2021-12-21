@@ -7,11 +7,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
- * @author 太好听了吧
- * @version 1.0
- * @Description Spring security的配置类
- * @Date 2021/12/3 21:35
- */
+ * 功能描述: Spring security的配置类
+ * @Author: Liu Heng
+*/
+
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
@@ -35,8 +34,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    public static void main(String[] args) {
-//        String encode = new BCryptPasswordEncoder().encode("admin");
-//        System.out.println(encode);
-//    }
 }

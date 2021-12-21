@@ -15,8 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 /**
- * @author websocket服务
- */
+ * 功能描述: websocket服务
+ * @Author: Liu Heng
+*/
 @ServerEndpoint(value = "/imserver/{username}")
 @Component
 public class WebSocketServer {
@@ -25,7 +26,6 @@ public class WebSocketServer {
 
     /**
     * 功能描述: 记录当前在线连接数
-    * @Param:
     * @Author: Liu Heng
     * @return:
     */

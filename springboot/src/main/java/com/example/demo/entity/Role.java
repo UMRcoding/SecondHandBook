@@ -11,10 +11,14 @@ import java.util.List;
 @TableName("role")
 @Data
 public class Role {
+
     @TableId(type = IdType.AUTO)
     private Integer id;
+
     private String name;
+
     private String comment;
+
     @TableField(exist = false)
     private List<Integer> permissions;
 }

@@ -23,7 +23,6 @@ public enum RoleEnum {
      */
     USER(2, "普通用户", "user");
 
-
     /**
      * 角色id
      */

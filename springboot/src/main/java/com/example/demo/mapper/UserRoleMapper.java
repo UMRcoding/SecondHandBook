@@ -5,11 +5,9 @@ import com.example.demo.entity.UserRole;
 import org.apache.ibatis.annotations.Select;
 
 /**
- * @author 太好听了吧
- * @version 1.0
- * @Description 用户角色数据层
- * @Date 2021/12/3 21:44
- */
+ * 功能描述:用户角色数据层
+ * @Author: Liu Heng
+*/
 public interface UserRoleMapper extends BaseMapper<UserRole> {
 
     @Select("delete from user_role where user_id=#{userId}")

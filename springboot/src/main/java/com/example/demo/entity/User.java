@@ -19,15 +19,24 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+
     @TableId(type = IdType.AUTO)
     private Integer id;
+
     private String username;
+
     private String password;
+
     private String nickName;
+
     private Integer age;
+
     private String sex;
+
     private String address;
+
     private String avatar;
+
     @TableField(exist = false)
     private List<Integer> roles;
 

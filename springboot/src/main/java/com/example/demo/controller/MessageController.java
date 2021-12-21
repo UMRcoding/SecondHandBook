@@ -20,10 +20,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/message")
 public class MessageController extends BaseController{
+
     @Resource
     private MessageMapper messageMapper;
+
     @Resource
     private UserMapper userMapper;
+
     @Resource
     HttpServletRequest request;
 

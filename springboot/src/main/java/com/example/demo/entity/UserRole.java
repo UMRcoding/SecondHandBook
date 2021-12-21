@@ -8,6 +8,9 @@ import lombok.Data;
 @Builder
 @TableName("user_role")
 public class UserRole {
+
     private Integer userId;
+
     private Integer roleId;
+
 }

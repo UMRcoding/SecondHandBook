@@ -14,7 +14,6 @@ public interface RoleMapper extends BaseMapper<Role> {
     @Select("select * from user_role where user_id = #{userId}")
     List<UserRole> getUserRoleByUserId(Integer userId);
 
-
     @Delete("delete from user_role where user_id = #{userId}")
     void deleteRoleByUserId(Integer userId);
 

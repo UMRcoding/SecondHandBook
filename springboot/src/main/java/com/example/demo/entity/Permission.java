@@ -10,11 +10,16 @@ import java.util.Objects;
 @TableName("permission")
 @Data
 public class Permission {
+
     @TableId(type = IdType.AUTO)
     private Integer id;
+
     private String name;
+
     private String path;
+
     private String comment;
+
     private String icon;
 
     @Override

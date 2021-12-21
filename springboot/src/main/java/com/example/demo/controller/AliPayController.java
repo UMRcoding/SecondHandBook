@@ -35,13 +35,6 @@ public class AliPayController {
         return response.getBody();
     }
 
-    /**
-     * 功能描述:
-     * @param request
-     * @Author: Liu Heng
-
- * @return java.lang.String
-    */
     @PostMapping("/notify")  // 注意这里必须是POST接口
     public String payNotify(HttpServletRequest request) throws Exception {
         if (request.getParameter("trade_status").equals("TRADE_SUCCESS")) {

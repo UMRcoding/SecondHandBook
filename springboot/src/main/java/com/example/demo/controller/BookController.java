@@ -49,7 +49,7 @@ public class BookController extends BaseController{
     }
 
     /**
-    * 功能描述: 这个方法使用的是Mybatis sql的方式做的多表联合查询，大家可以点开，参考下怎么写多表查询
+    * 功能描述: 这个方法使用的是Mybatis sql的方式做的多表联合查询
     * @Param: [java.lang.Integer]
     * @Author: Liu Heng
     * @return: com.example.demo.common.Result<?>

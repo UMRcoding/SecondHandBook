@@ -39,12 +39,16 @@ public class UserController extends BaseController {
 
     @Resource
     UserMapper userMapper;
+
     @Resource
     RoleMapper roleMapper;
+
     @Resource
     PermissionMapper permissionMapper;
+
     @Resource
     UserRoleMapper userRoleMapper;
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder; //注入bcryct加密
 
@@ -136,6 +140,7 @@ public class UserController extends BaseController {
         userMapper.updateById(user);
         return Result.success();
     }
+
 
     @PutMapping("/pass")
     public Result<?> pass(@RequestBody Map<String, Object> map) {

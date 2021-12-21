@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AuthInterceptor implements HandlerInterceptor {
 
-    // Could not autowire. No beans of 'UserMapper' type found
     @Autowired(required=false)
     private UserMapper userMapper;
 
@@ -31,6 +30,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         if (user == null) {
             throw new CustomException("401", "token不合法");
         }
+
         // 验证 token
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).build();
         try {
