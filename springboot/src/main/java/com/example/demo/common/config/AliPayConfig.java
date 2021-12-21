@@ -7,7 +7,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-
+/**
+ * 功能描述: 固定配置
+ * @Author: Liu Heng
+*/
 @Data
 @Component
 @ConfigurationProperties(prefix = "alipay")

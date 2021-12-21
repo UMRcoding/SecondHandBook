@@ -3,7 +3,7 @@
  * @Author: Liu Heng
  * @Date: 2021-12-20 16:12:29
  * @LastEditors: Liu Heng
- * @LastEditTime: 2021-12-21 10:23:17
+ * @LastEditTime: 2021-12-21 11:15:54
 -->
 <template>
   <div>
@@ -12,9 +12,11 @@
         <el-form-item label="原密码" prop="password">
           <el-input v-model="form.password" show-password></el-input>
         </el-form-item>
+
         <el-form-item label="新密码" prop="newPass">
           <el-input v-model="form.newPass" show-password></el-input>
         </el-form-item>
+
         <el-form-item label="确认新密码" prop="confirmPass">
           <el-input v-model="form.confirmPass" show-password></el-input>
         </el-form-item>
@@ -23,6 +25,7 @@
       <div style="text-align: center">
         <el-button type="primary" @click="changePsss">保存</el-button>
       </div>
+      
     </el-card>
   </div>
 </template>

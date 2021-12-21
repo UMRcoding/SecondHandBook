@@ -17,7 +17,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/user/login", "/user/register", "/imserver/**", "/files/**", "/alipay/**",
                         "/doc.html", "/webjars/**", "/swagger-resources/**");
-
     }
 
     @Override

@@ -17,6 +17,5 @@ public enum PwdEnum {
      * 默认密码
      */
     PASSWORD("123");
-
     private final String password;
 }

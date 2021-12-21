@@ -13,6 +13,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 功能描述: 拦截器：用户未登录时不许访问后台接口
+ * 要开放阿里云支付的回调，因为sdk的调用不带token
+ * @Author: Liu Heng
+*/
 public class AuthInterceptor implements HandlerInterceptor {
 
     @Autowired(required=false)

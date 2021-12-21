@@ -17,7 +17,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/alipay")
 public class AliPayController {
-
     @Resource
     private OrderMapper orderMapper;
 
@@ -25,7 +24,7 @@ public class AliPayController {
     public String pay(AliPay aliPay) {
         AlipayTradePagePayResponse response;
         try {
-            //  发起API调用（以创建当面付收款二维码为例）
+            //  向阿里发起API调用（以创建当面付收款二维码为例）
             response = Factory.Payment.Page()
                     .pay(aliPay.getSubject(), aliPay.getTraceNo(), aliPay.getTotalAmount(), "");
         } catch (Exception e) {
@@ -44,7 +43,7 @@ public class AliPayController {
             Map<String, String[]> requestParams = request.getParameterMap();
             for (String name : requestParams.keySet()) {
                 params.put(name, request.getParameter(name));
-                // System.out.println(name + " = " + request.getParameter(name));
+                 System.out.println(name + " = " + request.getParameter(name));
             }
 
             String tradeNo = params.get("out_trade_no");

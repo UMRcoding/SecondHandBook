@@ -1,12 +1,14 @@
-## Alipay
+## Alipay沙箱的实现
 
 ### 1.  密钥工具
 
 地址：https://miniu.alipay.com/keytool/create
 
+![](img/1.png)
+
 在线生成应用私钥`appPrivateKey`
 
-点击生成密钥即可生成自己应用的公钥和私钥。
+点击生成密钥即可生成应用的公钥和私钥，点击保存并下载。
 
 
 
@@ -16,11 +18,29 @@
 
 https://openhome.alipay.com/dev/workspace
 
-这里有专属的appid，网关的地址是测试环境地址，是固定的，需要配置下RSA2(SHA256)密钥。
+这里有专属的appid，网关的地址是测试环境地址，是固定的
+
+
+
+进入支付宝沙箱环境
+
+https://open.alipay.com/platform/appDaily.htm
+
+![](img/2.png)
+
+需要配置下RSA2(SHA256)密钥
 
  
 
-### 3.  内网穿透工具
+
+
+
+
+
+
+### 3.  内网穿透
+
+内网穿透就是把本机的ip和端口暴露到外网，通过指定的url可以访问你本地的服务。
 
 natapp地址：https://natapp.cn/
 
@@ -30,17 +50,13 @@ natapp地址：https://natapp.cn/
 
 直接在上面的命令后面加上就可以启动你的natapp，设置内网穿透了。
 
-内网穿透就是把本机的ip和端口暴露到外网，通过指定的url可以访问你本地的服务。
-
-
-
 
 
 ### 4.  Java SDK
 
 打开支付宝官方的文档：https://opendocs.alipay.com/open/54/00y8k9
 
-他提供了一个Easy版本的Java SDK集成方案，可以直接使用这个。
+使用Easy版本的Java SDK集成方案
 
 maven依赖：
 
@@ -54,105 +70,23 @@ maven依赖：
 
 
 
-### 5.  支付宝配置
+### 5.  Alipay配置
 
-在 application.properties文件里面加上这些配置
+alipay.appId：应用ID
 
-appId就是上面看到的沙箱环境里面提供的 appId
+alipay.appPrivateKey：自动生成的私钥
 
-appPrivateKey和alipayPublicKey也是上面已经有了直接复制过来即可。
+alipay.alipayPublicKey：根据`alipay.appPrivateKey`生成的Alipay公钥
 
-notifyUrl是支付成功后的一个回调接口，用来修改订单的状态，我们可以在AliPayController加上这个接口（后面有讲到），注意，这个回调接口的地址必须是我们在natapp里面获取到的公网地址，否则接口无法回调。
+alipay.notifyUrl：回调地址
 
-![img](file:///C:/Users/Oakley/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg)
 
-新建一个配置类 AliPayConfig 
 
-![img](file:///C:/Users/Oakley/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg)
 
-在这个配置类里面读取并设置全局的配置参数：
 
-import com.alipay.easysdk.factory.Factory;
 
-import com.alipay.easysdk.kernel.Config;
 
-import lombok.Data;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
-import org.springframework.stereotype.Component;
-
- 
-
-import javax.annotation.PostConstruct;
-
- 
-
-@Data
-
-@Component
-
-@ConfigurationProperties(prefix = "alipay")
-
-public class AliPayConfig {
-
-  private String appId;
-
-  private String appPrivateKey;
-
-  private String alipayPublicKey;
-
-  private String notifyUrl;
-
- 
-
- 
-
-  @PostConstruct
-
-  public void init() {
-
-​    // 设置参数（全局只需设置一次）
-
-​    Config options = getOptions();
-
-​    options.appId = this.appId;
-
-​    options.merchantPrivateKey = this.appPrivateKey;
-
-​    options.alipayPublicKey = this.alipayPublicKey;
-
-​    options.notifyUrl = this.notifyUrl;
-
-​    Factory.setOptions(options);
-
-​    System.out.println("=======支付宝SDK初始化成功=======");
-
-  }
-
- 
-
-  private Config getOptions() {
-
-​    Config config = new Config();
-
-​    config.protocol = "https";
-
-​    config.gatewayHost = "openapi.alipaydev.com";
-
-​    config.signType = "RSA2";
-
-​    return config;
-
-  }
-
- 
-
-}
-
- 
-
-### 3.  支付和回调接口
+### 6.  支付和回调接口
 
 新建一个AliPayController，写一个Get接口，这个是支付的接口，前端需要把 订单的标题、订单编号、订单的总金额传到后台来，后台去调用支付宝的APi生成支付订单，在网页上实现支付。
 
