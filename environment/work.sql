@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 21/12/2021 10:28:30
+ Date: 21/12/2021 15:51:44
 */
 
 SET NAMES utf8mb4;
@@ -130,15 +130,14 @@ INSERT INTO `permission` VALUES (1, 'Home', '/home', '主页', 'el-icon-house');
 INSERT INTO `permission` VALUES (2, 'Book', '/book', '书籍管理', 'el-icon-files');
 INSERT INTO `permission` VALUES (3, 'Category', '/category', '分类管理', 'el-icon-menu');
 INSERT INTO `permission` VALUES (4, 'Order', '/order', '我的订单', 'el-icon-s-order');
-INSERT INTO `permission` VALUES (5, 'News', '/news', '新闻管理', 'el-icon-news');
-INSERT INTO `permission` VALUES (6, 'Map', '/map', '百度地图', 'el-icon-map-location');
-INSERT INTO `permission` VALUES (7, 'Im', '/im', '聊天室', 'el-icon-chat-round');
-INSERT INTO `permission` VALUES (8, 'Message', '/message', '在线留言', 'el-icon-message');
-INSERT INTO `permission` VALUES (9, 'User', '/user', '用户管理', 'el-icon-user');
-INSERT INTO `permission` VALUES (10, 'Permission', '/permisssion', '权限菜单', 'el-icon-menu');
-INSERT INTO `permission` VALUES (11, 'Role', '/role', '角色管理', 'el-icon-s-custom');
-INSERT INTO `permission` VALUES (13, 'Person', '/person', '个人信息', '');
-INSERT INTO `permission` VALUES (14, 'Password', '/password', '修改密码', NULL);
+INSERT INTO `permission` VALUES (5, 'News', '/news', '通知管理', 'el-icon-news');
+INSERT INTO `permission` VALUES (6, 'Im', '/im', '聊天室', 'el-icon-chat-round');
+INSERT INTO `permission` VALUES (7, 'Message', '/message', '在线留言', 'el-icon-message');
+INSERT INTO `permission` VALUES (8, 'User', '/user', '用户管理', 'el-icon-user');
+INSERT INTO `permission` VALUES (9, 'Permission', '/permisssion', '功能权限', 'el-icon-menu');
+INSERT INTO `permission` VALUES (10, 'Role', '/role', '角色管理', 'el-icon-s-custom');
+INSERT INTO `permission` VALUES (11, 'Person', '/person', '个人信息', '');
+INSERT INTO `permission` VALUES (12, 'Password', '/password', '修改密码', NULL);
 
 -- ----------------------------
 -- Table structure for role
@@ -181,18 +180,7 @@ INSERT INTO `role_permission` VALUES (1, 8);
 INSERT INTO `role_permission` VALUES (1, 9);
 INSERT INTO `role_permission` VALUES (1, 10);
 INSERT INTO `role_permission` VALUES (1, 11);
-INSERT INTO `role_permission` VALUES (1, 13);
-INSERT INTO `role_permission` VALUES (1, 14);
-INSERT INTO `role_permission` VALUES (2, 1);
-INSERT INTO `role_permission` VALUES (2, 2);
-INSERT INTO `role_permission` VALUES (2, 3);
-INSERT INTO `role_permission` VALUES (2, 4);
-INSERT INTO `role_permission` VALUES (2, 5);
-INSERT INTO `role_permission` VALUES (2, 6);
-INSERT INTO `role_permission` VALUES (2, 7);
-INSERT INTO `role_permission` VALUES (2, 8);
-INSERT INTO `role_permission` VALUES (2, 13);
-INSERT INTO `role_permission` VALUES (2, 14);
+INSERT INTO `role_permission` VALUES (1, 12);
 
 -- ----------------------------
 -- Table structure for t_order
@@ -217,7 +205,7 @@ CREATE TABLE `t_order`  (
 -- ----------------------------
 -- Records of t_order
 -- ----------------------------
-INSERT INTO `t_order` VALUES (28, '碳中和革命', 60.00, 60.00, 0.00, 0.00, '1473117761347973120', 18, 'user1', '2021-12-21 10:26:58', NULL, 0);
+INSERT INTO `t_order` VALUES (36, '去依附', 98.00, 98.00, 0.00, 0.00, '1473130216434368512', 1, 'admin', '2021-12-21 11:16:53', '2021-12-21 11:16:52', 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -240,8 +228,6 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'admin', '$2a$10$.cxJ637DYA1PRSzfPmBO0efS1W2eTQefS51b83Nr5xgRNAW0ffgjO', '管理员', 20, '男', '火星', 'http://localhost:9090/files/888f2d39d0724816a738a716d56ad58a', 100000.00);
-INSERT INTO `user` VALUES (17, 'test', '$2a$10$YfhInmHyfIOw3CKYa/9sjuMEPlffTGAX//cAmoQ4hLN3uaT1gw6yW', 'test', 20, '男', '石家庄', NULL, 200.00);
-INSERT INTO `user` VALUES (18, 'user1', '$2a$10$Jth6Rwm9pXnMpzk7SL/5vuPR2SK7.20vZeNVDzj.ZQJWxctzxp/.O', '用户1473117627188965378', NULL, NULL, NULL, NULL, 1000.00);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -257,11 +243,5 @@ CREATE TABLE `user_role`  (
 -- Records of user_role
 -- ----------------------------
 INSERT INTO `user_role` VALUES (1, 1);
-INSERT INTO `user_role` VALUES (13, 2);
-INSERT INTO `user_role` VALUES (14, 2);
-INSERT INTO `user_role` VALUES (15, 2);
-INSERT INTO `user_role` VALUES (16, 2);
-INSERT INTO `user_role` VALUES (17, 2);
-INSERT INTO `user_role` VALUES (18, 2);
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -37,12 +37,20 @@ public class FileController extends BaseController {
     */
     @PostMapping("/upload")
     public Result<?> upload(MultipartFile file) throws IOException {
-        String originalFilename = file.getOriginalFilename();  // 获取源文件的名称
+        // 获取源文件的名称
+        String originalFilename = file.getOriginalFilename();
+
         // 定义文件的唯一标识（前缀）
         String flag = IdUtil.fastSimpleUUID();
-        String rootFilePath = System.getProperty("user.dir") + "/files/" + flag + "_" + originalFilename;  // 获取上传的路径
-        FileUtil.writeBytes(file.getBytes(), rootFilePath);  // 把文件写入到上传的路径
-        return Result.success("http://" + ip + ":" + port + "/files/" + flag);  // 返回结果 url
+
+        // 获取项目根路径，上传的路径
+        String rootFilePath = System.getProperty("user.dir") + "/files/" + flag + "_" + originalFilename;
+
+        // 把文件写入到上传的路径
+        FileUtil.writeBytes(file.getBytes(), rootFilePath);
+
+        // 返回结果 url
+        return Result.success("http://" + ip + ":" + port + "/files/" + flag);
     }
 
     /**
@@ -77,16 +85,27 @@ public class FileController extends BaseController {
     */
     @GetMapping("/{flag}")
     public void getFiles(@PathVariable String flag, HttpServletResponse response) {
-        OutputStream os;  // 新建一个输出流对象
-        String basePath = System.getProperty("user.dir") + "/files/";  // 定于文件上传的根路径
-        List<String> fileNames = FileUtil.listFileNames(basePath);  // 获取所有的文件名称
-        String fileName = fileNames.stream().filter(name -> name.contains(flag)).findAny().orElse("");  // 找到跟参数一致的文件
+        // 新建一个输出流对象
+        OutputStream os;
+
+        // 定于文件上传的根路径
+        String basePath = System.getProperty("user.dir") + "/files/";
+
+        // 获取所有的文件名称
+        List<String> fileNames = FileUtil.listFileNames(basePath);
+
+        // 找到跟参数一致的文件，通过流的方式输出到浏览器
+        String fileName = fileNames.stream().filter(name -> name.contains(flag)).findAny().orElse("");
         try {
             if (StrUtil.isNotEmpty(fileName)) {
                 response.addHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));
                 response.setContentType("application/octet-stream");
-                byte[] bytes = FileUtil.readBytes(basePath + fileName);  // 通过文件的路径读取文件字节流
-                os = response.getOutputStream();   // 通过输出流返回文件
+
+                // 通过文件的路径读取文件字节流
+                byte[] bytes = FileUtil.readBytes(basePath + fileName);
+
+                // 通过输出流返回文件
+                os = response.getOutputStream();
                 os.write(bytes);
                 os.flush();
                 os.close();
@@ -104,7 +123,8 @@ public class FileController extends BaseController {
     */
     @PostMapping("/upload/oss")
     public Result<?> ossUpload(MultipartFile file) {
-        return Result.success(AliOssUtil.upload("test/", file));  // 返回结果 url
+        // 返回结果 url
+        return Result.success(AliOssUtil.upload("test/", file));
     }
 
     /**

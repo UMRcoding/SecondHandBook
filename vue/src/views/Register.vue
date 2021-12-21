@@ -3,7 +3,7 @@
  * @Author: Liu Heng
  * @Date: 2021-12-20 16:12:29
  * @LastEditors: Liu Heng
- * @LastEditTime: 2021-12-21 09:23:37
+ * @LastEditTime: 2021-12-21 15:04:44
 -->
 <!--
  * @Description: 
@@ -20,21 +20,21 @@
  * @LastEditTime: 2021-12-21 09:22:50
 -->
 <template>
-  <div style="width: 100%; height: 100vh; overflow: hidden">
+  <div style="width: 100%; height: 100vh; overflow: hidden ;background-color:darkslateblue;">
     <div style="width: 400px; margin: 100px auto">
-      <div style="font-size: 30px; text-align: center; padding: 30px 0">欢迎注册</div>
+      <div style="font-size: 30px; text-align: center; padding: 30px 0; color: #fff">欢迎注册</div>
 
       <el-form ref="form" :model="form" size="normal" :rules="rules">
         <el-form-item prop="username">
-          <el-input prefix-icon="el-icon-user-solid" v-model="form.username"></el-input>
+          <el-input prefix-icon="el-icon-user-solid" v-model="form.username" placeholder="请输入用户名"></el-input>
         </el-form-item>
 
         <el-form-item prop="password">
-          <el-input prefix-icon="el-icon-lock" v-model="form.password" show-password></el-input>
+          <el-input prefix-icon="el-icon-lock" v-model="form.password" show-password placeholder="请输入密码"></el-input>
         </el-form-item>
 
         <el-form-item prop="confirm">
-          <el-input prefix-icon="el-icon-lock" v-model="form.confirm" show-password></el-input>
+          <el-input prefix-icon="el-icon-lock" v-model="form.confirm" show-password placeholder="请确认密码"></el-input>
         </el-form-item>
 
         <el-form-item>

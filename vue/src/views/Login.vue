@@ -17,7 +17,7 @@
 
             <el-form-item>
               <div style="display: flex">
-                <el-input prefix-icon="el-icon-key" v-model="form.validCode" style="width: 65%; margin-right:20px" placeholder="请输入验证码"></el-input>
+                <el-input prefix-icon="el-icon-key" v-model="form.validCode" style="width: 65%; margin-right:20px" placeholder="请输入验证码" @keyup.enter="login"></el-input>
                 <ValidCode @input="createValidCode" />
               </div>
             </el-form-item>
