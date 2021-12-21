@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Author: Liu Heng
+ * @Date: 2021-12-20 16:12:29
+ * @LastEditors: Liu Heng
+ * @LastEditTime: 2021-12-21 09:23:41
+ */
 import axios from 'axios'
 import router from "@/router";
 
@@ -55,7 +62,6 @@ request.interceptors.response.use(
         return Promise.reject(error)
     }
 )
-
 
 export default request
 

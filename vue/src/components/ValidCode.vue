@@ -69,12 +69,15 @@ export default {
           transform: `rotate(${Math.floor(Math.random() * 90) - Math.floor(Math.random() * 90)}deg)`
         })
       }
+
       // 指向
       this.codeList = codeList
+
       // 将当前数据派发出去
       // console.log(codeList.map(item => item.code).join(''))
       this.$emit('input', codeList.map(item => item.code).join(''))
     },
+
     getStyle (data) {
       return `color: ${data.color}; font-size: ${data.fontSize}; padding: ${data.padding}; transform: ${data.transform}`
     }

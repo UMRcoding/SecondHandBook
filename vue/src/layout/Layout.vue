@@ -5,11 +5,14 @@
 
     <!--    主体-->
     <div style="display: flex">
+
       <!--      侧边栏-->
       <Aside />
+
       <!--      内容区域-->
       <router-view style="flex: 1" @userInfo="refreshUser"/>
     </div>
+
   </div>
 </template>
 
@@ -47,7 +50,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
