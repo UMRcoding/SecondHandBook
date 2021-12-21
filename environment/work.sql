@@ -11,27 +11,11 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 21/12/2021 16:07:26
+ Date: 21/12/2021 16:58:13
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for area
--- ----------------------------
-DROP TABLE IF EXISTS `area`;
-CREATE TABLE `area`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `pid` int NULL DEFAULT NULL,
-  `value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of area
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for book
@@ -158,6 +142,12 @@ INSERT INTO `role_permission` VALUES (1, 8);
 INSERT INTO `role_permission` VALUES (1, 9);
 INSERT INTO `role_permission` VALUES (1, 10);
 INSERT INTO `role_permission` VALUES (1, 11);
+INSERT INTO `role_permission` VALUES (2, 1);
+INSERT INTO `role_permission` VALUES (2, 2);
+INSERT INTO `role_permission` VALUES (2, 3);
+INSERT INTO `role_permission` VALUES (2, 4);
+INSERT INTO `role_permission` VALUES (2, 5);
+INSERT INTO `role_permission` VALUES (2, 6);
 
 -- ----------------------------
 -- Table structure for t_order
@@ -182,7 +172,7 @@ CREATE TABLE `t_order`  (
 -- ----------------------------
 -- Records of t_order
 -- ----------------------------
-INSERT INTO `t_order` VALUES (36, '去依附', 98.00, 98.00, 0.00, 0.00, '1473130216434368512', 1, 'admin', '2021-12-21 11:16:53', '2021-12-21 11:16:52', 1);
+INSERT INTO `t_order` VALUES (44, '碳中和革命', 60.00, 60.00, 0.00, 0.00, '1473215065908846592', 1, 'admin', '2021-12-21 16:53:59', '2021-12-21 16:53:59', 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -205,6 +195,7 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'admin', '$2a$10$.cxJ637DYA1PRSzfPmBO0efS1W2eTQefS51b83Nr5xgRNAW0ffgjO', '管理员', 20, '男', '火星', 'http://localhost:9090/files/888f2d39d0724816a738a716d56ad58a', 100000.00);
+INSERT INTO `user` VALUES (19, 'lh', '$2a$10$5nMoAKCaAhprtg2uXPncluTyjqNMbVH7V0nhlst2RLeAPbQR1EHki', '用户1473207461803458562', NULL, NULL, NULL, NULL, 0.00);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -220,5 +211,6 @@ CREATE TABLE `user_role`  (
 -- Records of user_role
 -- ----------------------------
 INSERT INTO `user_role` VALUES (1, 1);
+INSERT INTO `user_role` VALUES (19, 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
