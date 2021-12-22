@@ -11,7 +11,10 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.common.Result;
-import com.example.demo.entity.*;
+import com.example.demo.entity.Permission;
+import com.example.demo.entity.RolePermission;
+import com.example.demo.entity.User;
+import com.example.demo.entity.UserRole;
 import com.example.demo.enums.PwdEnum;
 import com.example.demo.enums.RoleEnum;
 import com.example.demo.mapper.PermissionMapper;
@@ -51,6 +54,7 @@ public class UserController extends BaseController {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder; //注入bcryct加密
+
 
     @PostMapping("/login")
     public Result<?> login(@RequestBody User userParam) {
