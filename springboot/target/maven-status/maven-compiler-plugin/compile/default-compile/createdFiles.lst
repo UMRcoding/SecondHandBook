@@ -8,7 +8,6 @@ com\example\demo\controller\dto\UserAddressDto.class
 com\example\demo\entity\Book.class
 com\example\demo\controller\BookController.class
 com\example\demo\controller\RoleController.class
-com\example\demo\SpringBootStarterApplication.class
 com\example\demo\entity\RolePermission.class
 com\example\demo\entity\Role.class
 com\example\demo\mapper\MessageMapper.class
