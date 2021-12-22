@@ -141,6 +141,5 @@
     <orderEntry type="library" name="Maven: io.springfox:springfox-bean-validators:2.10.5" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-spring-webmvc:2.10.5" level="project" />
     <orderEntry type="library" name="Maven: com.github.xiaoymin:knife4j-spring-ui:2.0.7" level="project" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
   </component>
 </module>
