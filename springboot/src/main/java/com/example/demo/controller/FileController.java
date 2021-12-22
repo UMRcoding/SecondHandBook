@@ -7,8 +7,6 @@ import cn.hutool.json.JSON;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import com.example.demo.common.Result;
-import com.example.demo.controller.dto.FileVO;
-import com.example.demo.utils.AliOssUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -115,27 +113,4 @@ public class FileController extends BaseController {
         }
     }
 
-    /**
-    * 功能描述: OSS文件上传
-    * @Param: [org.springframework.web.multipart.MultipartFile]
-    * @Author: Liu Heng
-    * @return: com.example.demo.common.Result<?>
-    */
-    @PostMapping("/upload/oss")
-    public Result<?> ossUpload(MultipartFile file) {
-        // 返回结果 url
-        return Result.success(AliOssUtil.upload("test/", file));
-    }
-
-    /**
-    * 功能描述: OSS文件删除
-    * @Param: [com.example.demo.controller.dto.FileVO] fileVO 文件存储路径
-    * @Author: Liu Heng
-    * @return: com.example.demo.common.Result<?>
-    */
-    @DeleteMapping("/delete/oss")
-    public Result<?> ossUpload(@RequestBody FileVO fileVO) {
-        AliOssUtil.delete(fileVO.getFilekey());
-        return Result.success();
-    }
 }
