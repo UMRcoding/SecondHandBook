@@ -22,6 +22,8 @@ import com.example.demo.mapper.RoleMapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.mapper.UserRoleMapper;
 import com.example.demo.utils.TokenUtils;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +56,6 @@ public class UserController extends BaseController {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder; //注入bcryct加密
-
 
     @PostMapping("/login")
     public Result<?> login(@RequestBody User userParam) {
@@ -194,6 +195,11 @@ public class UserController extends BaseController {
 
     @GetMapping("/{id}")
     public Result<?> getById(@PathVariable Long id) {
+        //生明不使用配置文件
+        BasicConfigurator.configure();
+        Logger logger = Logger.getLogger(UserController.class.toString());
+        logger.info("\n\n后台接口 getById 被调用\n\n");
+
         return Result.success(userMapper.selectById(id));
     }
 
