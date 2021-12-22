@@ -13,18 +13,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 <!--	声明war-->
-	<packaging>war</packaging>
+<!--	<packaging>war</packaging>-->
 	<name>springboot</name>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
-		<dependency>
-<!--		发布时剔除内置tomcat-->
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--&lt;!&ndash;		发布时剔除内置tomcat&ndash;&gt;-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
