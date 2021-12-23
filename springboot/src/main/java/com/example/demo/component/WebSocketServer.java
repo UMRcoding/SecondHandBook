@@ -48,10 +48,8 @@ public class WebSocketServer {
         for (Object key : sessionMap.keySet()) {
             JSONObject jsonObject = new JSONObject();
             jsonObject.set("username", key);
-            // {"username", "zhang", "username": "admin"}
             array.add(jsonObject);
         }
-//        {"users": [{"username": "zhang"},{ "username": "admin"}]}
         sendAllMessage(JSONUtil.toJsonStr(result));  // 后台发送消息给所有的客户端
     }
 

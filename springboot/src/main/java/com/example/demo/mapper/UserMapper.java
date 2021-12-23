@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserMapper extends BaseMapper<User> {
-    // 一对多查询
     Page<User> findPage(Page<User> page, @Param("nickName") String nickName);
 
     @Select("select count(id) count, address from user GROUP BY address")

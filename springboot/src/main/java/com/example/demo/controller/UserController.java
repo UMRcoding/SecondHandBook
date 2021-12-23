@@ -221,7 +221,7 @@ public class UserController extends BaseController {
     }
 
     /**
-    * 功能描述: 用户分页列表查询，包含书籍表的一对多查询
+    * 功能描述:
     * @Param: [java.lang.Integer, java.lang.Integer, java.lang.String]
     * @Author: Liu Heng
     * @return: com.example.demo.common.Result<?>
