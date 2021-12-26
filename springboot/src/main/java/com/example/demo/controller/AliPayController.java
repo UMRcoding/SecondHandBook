@@ -24,17 +24,16 @@ public class AliPayController {
     public String pay(AliPay aliPay) {
         AlipayTradePagePayResponse response;
         try {
-            //  向阿里发起API调用（以创建当面付收款二维码为例）
+            //  向阿里发起API调用
             response = Factory.Payment.Page()
                     .pay(aliPay.getSubject(), aliPay.getTraceNo(), aliPay.getTotalAmount(), "");
         } catch (Exception e) {
-            System.err.println("调用遭遇异常，原因：" + e.getMessage());
             throw new RuntimeException(e.getMessage(), e);
         }
         return response.getBody();
     }
 
-    @PostMapping("/notify")  // 注意这里必须是POST接口
+    @PostMapping("/notify")  // 必须是POST接口
     public String payNotify(HttpServletRequest request) throws Exception {
         if (request.getParameter("trade_status").equals("TRADE_SUCCESS")) {
             System.out.println("=========支付宝异步回调========");
